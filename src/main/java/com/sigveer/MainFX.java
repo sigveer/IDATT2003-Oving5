@@ -1,8 +1,8 @@
 package com.sigveer;
 
-public class Main {
+public class MainFX {
 
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
+
   }
 }
