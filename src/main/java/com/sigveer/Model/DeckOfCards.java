@@ -4,13 +4,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+/**
+ * Represents a deck of cards.
+ */
 public class DeckOfCards {
 
   private List<PlayingCards> deck;
   private final char[] suits = {'♠', '♣', '♦', '♥'};
 
 
-
+  /**
+   * Constructor that creates a deck of cards.
+   *
+   * @param deck The deck of cards.
+   * @LastEdited: 1.0
+   * @Since: 1.0
+   */
   public DeckOfCards(List<PlayingCards> deck) {
     deck = new ArrayList<>();
     for (char suit : suits) {
@@ -21,7 +31,14 @@ public class DeckOfCards {
   }
 
 
-
+  /**
+   * Method that deals a hand of cards.
+   *
+   * @param numberOfCards The number of cards to deal.
+   * @return A hand of cards.
+   * @LastEdited: 1.0
+   * @Since: 1.0
+   */
   public HandOfCards dealHand(int numberOfCards) {
     if (numberOfCards < 1 || numberOfCards > 52) {
       throw new IllegalArgumentException("Number of cards must be between 1 and 52.");
