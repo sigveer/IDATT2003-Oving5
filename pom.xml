@@ -56,7 +56,7 @@
         <version>0.0.8</version>
         <configuration>
           <!-- Main class -->
-          <mainClass>com.sigveer.MainText</mainClass>
+          <mainClass>com.sigveer.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
