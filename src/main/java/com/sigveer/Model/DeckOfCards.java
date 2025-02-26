@@ -6,11 +6,11 @@ import java.util.List;
 
 
 /**
- * Represents a deck of cards.
+ * {@code DeckOfCards} represents a deck of cards.
  */
 public class DeckOfCards {
 
-  private List<PlayingCards> deck;
+  private final List<PlayingCards> deck;
   private final char[] suits = {'♠', '♣', '♦', '♥'};
 
 

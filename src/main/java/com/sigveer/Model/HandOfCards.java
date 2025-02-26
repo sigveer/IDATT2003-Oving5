@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 
 /**
- * Represents a hand of cards.
+ * {@code HandOfCards} represents a hand of cards.
  */
 public class HandOfCards {
 

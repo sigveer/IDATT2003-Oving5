@@ -2,7 +2,7 @@ package com.sigveer.Model;
 
 
 /**
- * Represents playing cards.
+ * {@code PlayingCards} represents a playing card.
  */
 public class PlayingCards {
 
