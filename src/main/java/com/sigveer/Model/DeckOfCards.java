@@ -6,23 +6,22 @@ import java.util.List;
 
 
 /**
- * Represents a deck of cards.
+ * {@code DeckOfCards} represents a deck of cards.
  */
 public class DeckOfCards {
 
-  private List<PlayingCards> deck;
+  private final List<PlayingCards> deck;
   private final char[] suits = {'♠', '♣', '♦', '♥'};
 
 
   /**
    * Constructor that creates a deck of cards.
    *
-   * @param deck The deck of cards.
    * @LastEdited: 1.0
    * @Since: 1.0
    */
-  public DeckOfCards(List<PlayingCards> deck) {
-    deck = new ArrayList<>();
+  public DeckOfCards() {
+    this.deck = new ArrayList<>();
     for (char suit : suits) {
       for (int face = 1; face <= 13; face++) {
         deck.add(new PlayingCards(suit, face));
@@ -43,8 +42,8 @@ public class DeckOfCards {
     if (numberOfCards < 1 || numberOfCards > 52) {
       throw new IllegalArgumentException("Number of cards must be between 1 and 52.");
     }
-    Collections.shuffle(deck);
-    List<PlayingCards> dealtCards = new ArrayList<>(deck.subList(0, numberOfCards));
+    Collections.shuffle(this.deck);
+    List<PlayingCards> dealtCards = new ArrayList<>(this.deck.subList(0, numberOfCards));
     return new HandOfCards(dealtCards);
   }
 }

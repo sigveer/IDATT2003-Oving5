@@ -2,7 +2,7 @@ package com.sigveer.Model;
 
 
 /**
- * Represents playing cards.
+ * {@code PlayingCards} represents a playing card.
  */
 public class PlayingCards {
 
@@ -24,5 +24,41 @@ public class PlayingCards {
     }
     this.suit = suit;
     this.face = face;
+  }
+
+
+  /**
+   * Method that returns the suit of the card.
+   *
+   * @return The suit of the card.
+   * @LastEdited: 1.0
+   * @Since: 1.0
+   */
+  public char getSuit() {
+    return suit;
+  }
+
+  /**
+   * Method that returns the face value of the card.
+   *
+   * @return The face value of the card.
+   * @LastEdited: 1.0
+   * @Since: 1.0
+   */
+  public int getFace() {
+    return face;
+  }
+
+
+  /**
+   * Method that returns the value of the card.
+   *
+   * @return The value of the card.
+   * @LastEdited: 1.0
+   * @Since: 1.0
+   */
+  @Override
+  public String toString() {
+    return "" + suit + face;
   }
 }
