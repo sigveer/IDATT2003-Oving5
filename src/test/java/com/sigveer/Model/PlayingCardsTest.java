@@ -17,8 +17,8 @@ class PlayingCardsTest {
   @Test
   public void ValidCard() {
     PlayingCards card = new PlayingCards('♥', 8);
-    assertEquals('♥', card.getSuit());
-    assertEquals(8, card.getFace());
+    assertEquals('♥', card.suit());
+    assertEquals(8, card.face());
     assertEquals("♥8", card.toString());
   }
 

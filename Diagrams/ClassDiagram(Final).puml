@@ -1,0 +1,29 @@
+@startuml
+class PlayingCard {
+  - suit: char
+  - face: int
+  + PlayingCard(suit: char, face: int)
+  + getSuit(): char
+  + getFace(): int
+  + toString(): String
+}
+
+class DeckOfCards {
+  - deck: List<PlayingCard>
+  - suit: char[] = {'S', 'H', 'D', 'C'}
+  + DeckOfCards()
+  + dealHand(n: int): HandOfCards
+}
+
+class HandOfCards {
+  - hand: List<PlayingCard>
+  + HandOfCards(cards: List<PlayingCard>)
+  + getHand(): List<PlayingCard>
+  + checkFlush(): boolean
+  + toString(): String
+}
+
+DeckOfCards --> PlayingCard : creates
+DeckOfCards --> HandOfCards : returns
+HandOfCards --> PlayingCard : contains
+@enduml

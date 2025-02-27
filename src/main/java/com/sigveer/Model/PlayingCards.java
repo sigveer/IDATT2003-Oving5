@@ -4,11 +4,7 @@ package com.sigveer.Model;
 /**
  * {@code PlayingCards} represents a playing card.
  */
-public class PlayingCards {
-
-  private final char suit;
-  private final int face;
-
+public record PlayingCards(char suit, int face) {
 
   /**
    * Constructor that creates playing cards.
@@ -18,12 +14,10 @@ public class PlayingCards {
    * @LastEdited: 1.0
    * @Since: 1.0
    */
-  public PlayingCards(char suit, int face) {
+  public PlayingCards {
     if (face < 1 || face > 13) {
       throw new IllegalArgumentException("Face value must be between 1 and 13.");
     }
-    this.suit = suit;
-    this.face = face;
   }
 
 
@@ -34,7 +28,8 @@ public class PlayingCards {
    * @LastEdited: 1.0
    * @Since: 1.0
    */
-  public char getSuit() {
+  @Override
+  public char suit() {
     return suit;
   }
 
@@ -45,7 +40,8 @@ public class PlayingCards {
    * @LastEdited: 1.0
    * @Since: 1.0
    */
-  public int getFace() {
+  @Override
+  public int face() {
     return face;
   }
 

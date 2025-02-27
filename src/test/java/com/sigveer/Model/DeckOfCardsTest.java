@@ -20,16 +20,16 @@ class DeckOfCardsTest {
   void deckInitialization() {
     DeckOfCards deckOfCards = new DeckOfCards();
     HandOfCards hand = deckOfCards.dealHand(52);
-    List<PlayingCards> cards = hand.getHand();
+    List<PlayingCards> cards = hand.hand();
     assertEquals(52, cards.size(), "There should be 52 cards in the deck.");
 
     Set<PlayingCards> uniqueCards = new HashSet<>(cards);
     assertEquals(52, uniqueCards.size(), "All cards should be unique.");
 
-    long countHearts = cards.stream().filter(card -> card.getSuit() == '♥').count();
-    long countDiamonds = cards.stream().filter(card -> card.getSuit() == '♦').count();
-    long countSpades = cards.stream().filter(card -> card.getSuit() == '♠').count();
-    long countClubs = cards.stream().filter(card -> card.getSuit() == '♣').count();
+    long countHearts = cards.stream().filter(card -> card.suit() == '♥').count();
+    long countDiamonds = cards.stream().filter(card -> card.suit() == '♦').count();
+    long countSpades = cards.stream().filter(card -> card.suit() == '♠').count();
+    long countClubs = cards.stream().filter(card -> card.suit() == '♣').count();
 
     assertEquals(13, countHearts, "There should be 13 hearts in the deck.");
     assertEquals(13, countDiamonds, "There should be 13 diamonds in the deck.");
@@ -46,7 +46,7 @@ class DeckOfCardsTest {
     DeckOfCards deckOfCards = new DeckOfCards();
     int numberOfCards = 5;
     HandOfCards hand = deckOfCards.dealHand(numberOfCards);
-    assertEquals(numberOfCards, hand.getHand().size(), "The hand should contain 5 cards.");
+    assertEquals(numberOfCards, hand.hand().size(), "The hand should contain 5 cards.");
   }
 
 

@@ -11,7 +11,6 @@ import java.util.List;
 public class DeckOfCards {
 
   private final List<PlayingCards> deck;
-  private final char[] suits = {'♠', '♣', '♦', '♥'};
 
 
   /**
@@ -22,6 +21,7 @@ public class DeckOfCards {
    */
   public DeckOfCards() {
     this.deck = new ArrayList<>();
+    char[] suits = {'♠', '♣', '♦', '♥'};
     for (char suit : suits) {
       for (int face = 1; face <= 13; face++) {
         deck.add(new PlayingCards(suit, face));
