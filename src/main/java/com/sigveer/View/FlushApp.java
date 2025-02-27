@@ -22,24 +22,24 @@ public class FlushApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("FLUSH!");
+        primaryStage.setTitle("FLUSHGAME!");
         primaryStage.setX(250);
         primaryStage.setY(100);
 
         VBox mainLayout = new VBox(20);
         mainLayout.setAlignment(Pos.CENTER);
         mainLayout.setPadding(new Insets(20));
-        mainLayout.setStyle("-fx-background-color: #0a1b5e;");
+        mainLayout.setStyle("-fx-background-color: #f4f4f4;");
 
         Label title = new Label("FLUSH!");
-        title.setStyle("-fx-font-size: 40px; -fx-text-fill: #ffffff; -fx-font-weight: bold;");
+        title.setStyle("-fx-font-size: 40px; -fx-text-fill: #000000; -fx-font-weight: bold;");
 
         VBox cardDisplayBox = new VBox(10);
-        cardDisplayBox.setStyle("-fx-background-color: #d3d3d3; -fx-border-color: #000000; -fx-border-width: 2px;");
+        cardDisplayBox.setStyle("-fx-background-color: #8e8b8b; -fx-border-color: #000000; -fx-border-width: 2px;");
         cardDisplayBox.setPrefSize(400, 200);
         cardDisplayBox.setAlignment(Pos.CENTER);
         Label handLabel = new Label("Click 'Deal hand' to get a hand of cards");
-        handLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #000000;");
+        handLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #ffffff;");
         cardDisplayBox.getChildren().add(handLabel);
 
         HBox buttonBox = new HBox(20);
@@ -53,17 +53,16 @@ public class FlushApp extends Application {
         VBox statusBox = new VBox(10);
         statusBox.setAlignment(Pos.CENTER);
         Label sumLabel = new Label("Sum of the faces: 0");
-        sumLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #ffffff;");
+        sumLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #000000;");
         Label cardsLabel = new Label("Cards of hearts: ");
-        cardsLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #ffffff;");
+        cardsLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #000000;");
         Label queenOfSpadesLabel = new Label("Queen of spades: No");
-        queenOfSpadesLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #ffffff;");
+        queenOfSpadesLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #000000;");
         Label flushLabel = new Label("Flush: No");
-        flushLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #ffffff;");
+        flushLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #000000;");
         statusBox.getChildren().addAll(sumLabel, cardsLabel,queenOfSpadesLabel, flushLabel);
 
         mainLayout.getChildren().addAll(title, cardDisplayBox, buttonBox, statusBox);
-
 
         Scene scene = new Scene(mainLayout, 700, 500);
         primaryStage.setScene(scene);
@@ -75,20 +74,21 @@ public class FlushApp extends Application {
             currentHand = deck.dealHand(5);
             String handText = currentHand.toString();
             handLabel.setText(handText);
+            handLabel.setStyle("-fx-font-size: 36px; -fx-text-fill: #d52525;");
 
-            int sum = currentHand.getHand().stream()
-                .mapToInt(PlayingCards::getFace)
+            int sum = currentHand.hand().stream()
+                .mapToInt(PlayingCards::face)
                 .sum();
             sumLabel.setText("Sum of the faces: " + sum);
 
-            String heartsCards = currentHand.getHand().stream()
-                .filter(card -> card.getSuit() == '♥')
+            String heartsCards = currentHand.hand().stream()
+                .filter(card -> card.suit() == '♥')
                 .map(PlayingCards::toString)
                 .collect(Collectors.joining(" "));
             cardsLabel.setText("Cards of hearts: " + (heartsCards.isEmpty() ? "None" : heartsCards));
 
-            boolean hasQueenOfSpades = currentHand.getHand().stream()
-                .anyMatch(card -> card.getSuit() == '♠' && card.getFace() == 12);
+            boolean hasQueenOfSpades = currentHand.hand().stream()
+                .anyMatch(card -> card.suit() == '♠' && card.face() == 12);
             queenOfSpadesLabel.setText("Queen of spades: " + (hasQueenOfSpades ? "Yes" : "No"));
         });
 
