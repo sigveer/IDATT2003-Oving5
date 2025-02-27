@@ -72,6 +72,6 @@ class HandOfCardsTest {
         new PlayingCards('♠', 8)
     );
     HandOfCards handOfCards = new HandOfCards(hand);
-    assertEquals("♥2, ♦5, ♠8", handOfCards.toString());
+    assertEquals("♥2 ♦5 ♠8", handOfCards.toString());
   }
 }
