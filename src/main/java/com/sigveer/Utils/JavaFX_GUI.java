@@ -1,13 +1,8 @@
 package com.sigveer.Utils;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 public class JavaFX_GUI {
-
-  public static void styleLabel(Label label) {
-    String style = "-fx-font-size: 16px; -fx-text-fill: #ffffff; -fx-font-weight: bold;";
-  }
 
   public static void styleButton(Button button) {
     String normalStyle =

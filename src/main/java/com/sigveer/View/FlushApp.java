@@ -85,16 +85,15 @@ public class FlushApp extends Application {
                 cardBox.setPrefSize(60, 90);
                 cardBox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 2px; -fx-border-radius: 5px;");
 
-                String faceText;
-                switch (card.face()) {
-                    case 1: faceText = "A"; break;
-                    case 11: faceText = "J"; break;
-                    case 12: faceText = "Q"; break;
-                    case 13: faceText = "K"; break;
-                    default: faceText = String.valueOf(card.face()); break;
-                }
+                String faceText = switch (card.face()) {
+                  case 1 -> "A";
+                  case 11 -> "J";
+                  case 12 -> "Q";
+                  case 13 -> "K";
+                  default -> String.valueOf(card.face());
+                };
 
-                Label faceLabel = new Label(faceText);
+              Label faceLabel = new Label(faceText);
                 faceLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: #000000;");
 
                 Label suitLabel = new Label(String.valueOf(card.suit()));
