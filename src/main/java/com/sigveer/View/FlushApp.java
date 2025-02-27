@@ -36,7 +36,9 @@ public class FlushApp extends Application {
 
         VBox cardDisplayBox = new VBox(10);
         cardDisplayBox.setStyle("-fx-background-color: #8e8b8b; -fx-border-color: #000000; -fx-border-width: 2px;");
-        cardDisplayBox.setPrefSize(400, 200);
+        cardDisplayBox.setPrefSize(400, 150);
+        cardDisplayBox.setMaxWidth(400);
+        cardDisplayBox.setMaxHeight(150);
         cardDisplayBox.setAlignment(Pos.CENTER);
 
         HBox handDisplay = new HBox(10);
@@ -54,7 +56,7 @@ public class FlushApp extends Application {
         buttonBox.getChildren().addAll(dealButton, checkButton);
 
         VBox statusBox = new VBox(10);
-        statusBox.setAlignment(Pos.CENTER);
+        statusBox.setAlignment(Pos.CENTER_LEFT);
         Label sumLabel = new Label("Sum of the faces: ");
         sumLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #000000;");
         Label cardsLabel = new Label("Cards of hearts: ");
@@ -83,7 +85,7 @@ public class FlushApp extends Application {
                 VBox cardBox = new VBox(5);
                 cardBox.setAlignment(Pos.CENTER);
                 cardBox.setPrefSize(60, 90);
-                cardBox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 2px; -fx-border-radius: 5px;");
+                cardBox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 2px;");
 
                 String faceText = switch (card.face()) {
                   case 1 -> "A";
