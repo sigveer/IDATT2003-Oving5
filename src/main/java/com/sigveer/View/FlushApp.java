@@ -76,27 +76,47 @@ public class FlushApp extends Application {
         dealButton.setOnAction(e -> {
             currentHand = deck.dealHand(5);
 
-            // Tøm tidligere kort og skjul placeholder
             handDisplay.getChildren().clear();
             placeholderLabel.setVisible(false);
 
-
             for (PlayingCards card : currentHand.hand()) {
-                Label cardLabel = new Label(card.toString());
-                cardLabel.setStyle("-fx-font-size: 36px;");
+                VBox cardBox = new VBox(5);
+                cardBox.setAlignment(Pos.CENTER);
+                cardBox.setPrefSize(60, 90);
+                cardBox.setStyle("-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 2px; -fx-border-radius: 5px;");
 
+                String faceText;
+                switch (card.face()) {
+                    case 1: faceText = "A"; break;
+                    case 11: faceText = "J"; break;
+                    case 12: faceText = "Q"; break;
+                    case 13: faceText = "K"; break;
+                    default: faceText = String.valueOf(card.face()); break;
+                }
+
+                Label faceLabel = new Label(faceText);
+                faceLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: #000000;");
+
+                Label suitLabel = new Label(String.valueOf(card.suit()));
+                suitLabel.setStyle("-fx-font-size: 30px;");
                 switch (card.suit()) {
                     case '♥':
                     case '♦':
-                        cardLabel.setStyle("-fx-font-size: 36px; -fx-text-fill: #ff0000;");
+                        suitLabel.setStyle("-fx-font-size: 30px; -fx-text-fill: #ff0000;"); // Rød
                         break;
                     case '♠':
                     case '♣':
-                        cardLabel.setStyle("-fx-font-size: 36px; -fx-text-fill: #000000;");
+                        suitLabel.setStyle("-fx-font-size: 30px; -fx-text-fill: #000000;"); // Svart
                         break;
                 }
-                handDisplay.getChildren().add(cardLabel);
+
+
+                cardBox.getChildren().addAll(faceLabel, suitLabel);
+
+
+                handDisplay.getChildren().add(cardBox);
             }
+
 
             sumLabel.setText("Sum of the faces: ");
             cardsLabel.setText("Cards of hearts: ");

@@ -8,10 +8,7 @@ import java.util.stream.Collectors;
 /**
  * {@code HandOfCards} represents a hand of cards.
  */
-public class HandOfCards {
-
-  private final List<PlayingCards> hand;
-
+public record HandOfCards(List<PlayingCards> hand) {
 
   /**
    * Constructor that creates a hand of cards.
@@ -20,8 +17,7 @@ public class HandOfCards {
    * @LastEdited: 1.0
    * @Since: 1.0
    */
-  public HandOfCards(List<PlayingCards> hand) {
-    this.hand = hand;
+  public HandOfCards {
   }
 
 
@@ -32,7 +28,8 @@ public class HandOfCards {
    * @LastEdited: 1.0
    * @Since: 1.0
    */
-  public List<PlayingCards> getHand() {
+  @Override
+  public List<PlayingCards> hand() {
     return hand;
   }
 
@@ -46,7 +43,7 @@ public class HandOfCards {
    */
   public boolean checkFlush() {
     Map<Character, Long> suitCounts = hand.stream()
-        .collect(Collectors.groupingBy(PlayingCards::getSuit, Collectors.counting()));
+        .collect(Collectors.groupingBy(PlayingCards::suit, Collectors.counting()));
     return suitCounts.values().stream().anyMatch(count -> count >= 5);
   }
 
@@ -62,6 +59,6 @@ public class HandOfCards {
   public String toString() {
     return hand.stream()
         .map(PlayingCards::toString)
-        .collect(Collectors.joining(", "));
+        .collect(Collectors.joining(" "));
   }
 }

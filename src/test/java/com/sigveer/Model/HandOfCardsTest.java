@@ -25,7 +25,7 @@ class HandOfCardsTest {
         new PlayingCards('♠', 8)
     );
     HandOfCards handOfCards = new HandOfCards(hand);
-    assertEquals(hand, handOfCards.getHand());
+    assertEquals(hand, handOfCards.hand());
   }
 
 
