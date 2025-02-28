@@ -2,10 +2,7 @@ package com.sigveer.Model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 /**
