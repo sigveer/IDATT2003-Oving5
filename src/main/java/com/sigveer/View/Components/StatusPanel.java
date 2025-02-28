@@ -55,7 +55,7 @@ public class StatusPanel extends VBox {
    *
    * @param cards The hearts cards string.
    * @LastEdited: 1.1
-   * @Since: 1.1
+   * @Since: 1.0
    */
   public void updateCardsLabel(String cards) {
     cardsLabel.setText("Cards of hearts: " + (cards.isEmpty() ? "None" : cards));
@@ -66,7 +66,7 @@ public class StatusPanel extends VBox {
    *
    * @param hasQueenOfSpades Whether the hand has the queen of spades.
    * @LastEdited: 1.1
-   * @Since: 1.1
+   * @Since: 1.0
    */
   public void updateQueenOfSpadesLabel(boolean hasQueenOfSpades) {
     queenOfSpadesLabel.setText("Queen of spades: " + (hasQueenOfSpades ? "Yes" : "No"));
@@ -77,7 +77,7 @@ public class StatusPanel extends VBox {
    *
    * @param hasFlush Whether the hand has a flush.
    * @LastEdited: 1.1
-   * @Since: 1.1
+   * @Since: 1.0
    */
   public void updateFlushLabel(boolean hasFlush) {
     flushLabel.setText("Flush: " + (hasFlush ? "Yes" : "No"));
@@ -86,7 +86,7 @@ public class StatusPanel extends VBox {
   /**
    * Resets all status labels to their initial state.
    * @LastEdited: 1.1
-   * @Since: 1.1
+   * @Since: 1.0
    */
   public void resetLabels() {
     sumLabel.setText("Sum of the faces: ");
