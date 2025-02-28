@@ -5,6 +5,7 @@ class PlayingCard {
   + PlayingCard(suit: char, face: int)
   + getSuit(): char
   + getFace(): int
+  + toString(): String
 }
 
 class DeckOfCards {
@@ -19,6 +20,7 @@ class HandOfCards {
   + HandOfCards(cards: List<PlayingCard>)
   + getHand(): List<PlayingCard>
   + checkFlush(): boolean
+  + toString(): String
 }
 
 DeckOfCards --> PlayingCard : creates
