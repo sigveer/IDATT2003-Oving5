@@ -17,6 +17,8 @@ public class HandPanel extends VBox {
 
   /**
    * Constructor that creates a new hand panel.
+   * @LastEdited: 1.1
+   * @Since: 1.1
    */
   public HandPanel() {
     super(10);
@@ -40,6 +42,8 @@ public class HandPanel extends VBox {
    * Updates the hand display with a new hand of cards.
    *
    * @param hand The hand of cards to display.
+   * @LastEdited: 1.1
+   * @Since: 1.1
    */
   public void updateHandDisplay(HandOfCards hand) {
     handDisplay.getChildren().clear();
