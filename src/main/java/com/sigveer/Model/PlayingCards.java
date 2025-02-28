@@ -1,10 +1,9 @@
 package com.sigveer.Model;
 
-
 /**
  * {@code PlayingCards} represents a playing card.
  */
-public record PlayingCards(char suit, int face) {
+public record PlayingCards(Suit suit, int face) {
 
   /**
    * Constructor that creates playing cards.
@@ -20,21 +19,31 @@ public record PlayingCards(char suit, int face) {
     }
   }
 
-
   /**
-   * Method that returns the suit of the card.
+   * Constructor that creates playing cards using a char symbol.
    *
-   * @return The suit of the card.
-   * @LastEdited: 1.0
-   * @Since: 1.0
+   * @param suitSymbol The suit symbol of the card.
+   * @param face The face value of the card.
+   * @LastEdited: 1.1
+   * @Since: 1.1
    */
-  @Override
-  public char suit() {
-    return suit;
+  public PlayingCards(char suitSymbol, int face) {
+    this(Suit.fromSymbol(suitSymbol), face);
   }
 
   /**
-   * Method that returns the face value of the card.
+   * Gets the suit symbol of the card.
+   *
+   * @return The suit symbol of the card.
+   * @LastEdited: 1.1
+   * @Since: 1.1
+   */
+  public char suitSymbol() {
+    return suit.getSymbol();
+  }
+
+  /**
+   * Gets the face value of the card.
    *
    * @return The face value of the card.
    * @LastEdited: 1.0
@@ -45,16 +54,55 @@ public record PlayingCards(char suit, int face) {
     return face;
   }
 
+  /**
+   * Gets the suit of the card.
+   *
+   * @return The suit of the card.
+   * @LastEdited: 1.1
+   * @Since: 1.1
+   */
+  @Override
+  public Suit suit() {
+    return suit;
+  }
 
   /**
-   * Method that returns the value of the card.
+   * Checks if the card's suit is red.
    *
-   * @return The value of the card.
-   * @LastEdited: 1.0
+   * @return True if the card's suit is red, false otherwise.
+   * @LastEdited: 1.1
+   * @Since: 1.1
+   */
+  public boolean isRed() {
+    return suit.isRed();
+  }
+
+  /**
+   * Gets the face as a string.
+   *
+   * @return The face as a string (A, 2-10, J, Q, K).
+   * @LastEdited: 1.1
+   * @Since: 1.1
+   */
+  public String faceAsString() {
+    return switch (face) {
+      case 1 -> "A";
+      case 11 -> "J";
+      case 12 -> "Q";
+      case 13 -> "K";
+      default -> String.valueOf(face);
+    };
+  }
+
+  /**
+   * Returns a string representation of the card.
+   *
+   * @return A string representation of the card.
+   * @LastEdited: 1.1
    * @Since: 1.0
    */
   @Override
   public String toString() {
-    return "" + suit + face;
+    return "" + suit.getSymbol() + face;
   }
 }

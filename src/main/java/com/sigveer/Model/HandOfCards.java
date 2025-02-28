@@ -21,19 +21,6 @@ public record HandOfCards(List<PlayingCards> hand) {
   }
 
 
-//  /**
-//   * Method that returns the hand of cards.
-//   *
-//   * @return The hand of cards.
-//   * @LastEdited: 1.0
-//   * @Since: 1.0
-//   */
-//  @Override
-//  public List<PlayingCards> hand() {
-//    return hand;
-//  }
-
-
   /**
    * Method that checks if the hand contains a flush.
    *
@@ -50,20 +37,6 @@ public record HandOfCards(List<PlayingCards> hand) {
 
 
   /**
-   * Method that counts the number of cards of a specific suit in the hand.
-   *
-   * @return The number of cards of a specific suit in the hand.
-   * @LastEdited: 1.1
-   * @Since: 1.1
-   */
-  public long countSuit(char suit) {
-    return hand.stream()
-        .filter(card -> card.suit() == suit)
-        .count();
-  }
-
-
-  /**
    * Method that checks if the hand contains a specific card.
    *
    * @param suit The suit of the card.
@@ -72,7 +45,7 @@ public record HandOfCards(List<PlayingCards> hand) {
    * @LastEdited: 1.1
    * @Since: 1.1
    */
-  private boolean containsCard(char suit, int face) {
+  public boolean containsCard(Suit suit, int face) {
     return hand.stream()
         .anyMatch(card -> card.suit() == suit && card.face() == face);
   }
@@ -100,7 +73,7 @@ public record HandOfCards(List<PlayingCards> hand) {
    * @LastEdited: 1.1
    * @Since: 1.1
    */
-  public List<PlayingCards> getCardsBySuit(char suit) {
+  public List<PlayingCards> getCardsBySuit(Suit suit) {
     return hand.stream()
         .filter(card -> card.suit() == suit)
         .collect(Collectors.toList());
