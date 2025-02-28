@@ -1,27 +1,67 @@
 @startuml
-class PlayingCard {
-  - suit: char
-  - face: int
-  + PlayingCard(suit: char, face: int)
-  + getSuit(): char
-  + getFace(): int
+class FlushApp {
+  + start(Stage primaryStage)
+  + main(String[] args)
+}
+
+class GameController {
+  - DeckOfCards deck
+  - HandOfCards currentHand
+  + GameController()
+  + dealHand(int numberOfCards)
+  + getCurrentHand(): HandOfCards
+  + calculateFaceSum(): int
+  + getHeartsCards(): String
+  + hasQueenOfSpades(): boolean
+  + hasFlush(): boolean
 }
 
 class DeckOfCards {
-  - deck: List<PlayingCard>
-  - suit: char[] = {'S', 'H', 'D', 'C'}
+  - List<PlayingCards> deck
   + DeckOfCards()
-  + dealHand(n: int): HandOfCards
+  + dealHand(int numberOfCards): HandOfCards
 }
 
 class HandOfCards {
-  - hand: List<PlayingCard>
-  + HandOfCards(cards: List<PlayingCard>)
-  + getHand(): List<PlayingCard>
+  - List<PlayingCards> hand
+  + HandOfCards(List<PlayingCards> hand)
   + checkFlush(): boolean
+  + containsCard(Suit suit, int face): boolean
+  + sumOfFaces(): int
+  + getCardsBySuit(Suit suit): List<PlayingCards>
+  + toString(): String
 }
 
-DeckOfCards --> PlayingCard : creates
-DeckOfCards --> HandOfCards : returns
-HandOfCards --> PlayingCard : contains
+class PlayingCards {
+  - Suit suit
+  - int face
+  + PlayingCards(Suit suit, int face)
+  + PlayingCards(char suitSymbol, int face)
+  + suitSymbol(): char
+  + face(): int
+  + suit(): Suit
+  + isRed(): boolean
+  + faceAsString(): String
+  + toString(): String
+}
+
+class Suit {
+  + SPADES
+  + CLUBS
+  + HEARTS
+  + DIAMONDS
+  + getSymbol(): char
+  + isRed(): boolean
+  + fromSymbol(char symbol): Suit
+}
+
+FlushApp --> GameController
+
+GameController --> DeckOfCards
+GameController --> HandOfCards
+DeckOfCards --> PlayingCards
+DeckOfCards --> HandOfCards
+HandOfCards --> PlayingCards
+PlayingCards --> Suit
+
 @enduml
