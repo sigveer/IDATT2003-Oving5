@@ -5,6 +5,7 @@ import com.sigveer.Utils.StyleUtils;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 
 /**
  * {@code CardComponent} represents a UI component for displaying a playing card.
@@ -22,22 +23,26 @@ public class CardComponents extends VBox {
    * @Since: 1.1
    */
   public CardComponents(PlayingCards card) {
-    super(5);
+    Rectangle cardBackground = new Rectangle(80, 20);
+    cardBackground.setArcWidth(16);
+    cardBackground.setArcHeight(16);
+    cardBackground.setStyle("-fx-fill: white;");
 
-    this.setAlignment(Pos.CENTER);
-    this.setPrefSize(60, 90);
+    this.getChildren().add(cardBackground);
     this.setStyle(StyleUtils.CARD_STYLE);
+
+    VBox mainContent = new VBox(10);
+    mainContent.setAlignment(Pos.CENTER);
 
     faceLabel = new Label(card.faceAsString());
     faceLabel.setStyle(StyleUtils.FACE_STYLE);
 
     suitLabel = new Label(String.valueOf(card.suitSymbol()));
-    if (card.isRed()) {
-      suitLabel.setStyle(StyleUtils.RED_SUIT_STYLE);
-    } else {
-      suitLabel.setStyle(StyleUtils.BLACK_SUIT_STYLE);
-    }
+    suitLabel.setStyle(card.isRed() ? StyleUtils.RED_SUIT_STYLE : StyleUtils.BLACK_SUIT_STYLE);
 
-    this.getChildren().addAll(faceLabel, suitLabel);
+    mainContent.getChildren().addAll(faceLabel, suitLabel);
+
+
+    this.getChildren().addAll(mainContent);
   }
 }

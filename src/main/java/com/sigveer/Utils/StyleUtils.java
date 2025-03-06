@@ -8,20 +8,45 @@ import javafx.scene.control.Label;
  */
 public class StyleUtils {
 
-  public static final String CARD_STYLE = "-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 2px;";
-  public static final String RED_SUIT_STYLE = "-fx-font-size: 30px; -fx-text-fill: #ff0000;";
-  public static final String BLACK_SUIT_STYLE = "-fx-font-size: 30px; -fx-text-fill: #000000;";
-  public static final String FACE_STYLE = "-fx-font-size: 20px; -fx-text-fill: #000000;";
+  public static final String CARD_STYLE = "-fx-background-color: #ffffff; " +
+      "-fx-border-color: #333333; " +
+      "-fx-border-width: 2px; " +
+      "-fx-border-radius: 8px; " +
+      "-fx-background-radius: 8px; " +
+      "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 1, 2);";
 
-  public static final String CARD_DISPLAY_BOX_STYLE = "-fx-background-color: #8e8b8b; -fx-border-color: #000000; -fx-border-width: 2px;";
+  public static final String CARD_DISPLAY_BOX_STYLE = "-fx-background-color: #457b9d; " +
+      "-fx-border-color: #1d3557; " +
+      "-fx-border-width: 3px; " +
+      "-fx-border-radius: 10px; " +
+      "-fx-background-radius: 10px; " +
+      "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 2, 3);";
 
-  public static final String MAIN_LAYOUT_STYLE = "-fx-background-color: #c8c4c4;";
+  public static final String RED_SUIT_STYLE = "-fx-font-size: 36px; -fx-text-fill: #e63946; -fx-font-weight: bold;";
+  public static final String BLACK_SUIT_STYLE = "-fx-font-size: 36px; -fx-text-fill: #1d3557; -fx-font-weight: bold;";
+  public static final String FACE_STYLE = "-fx-font-size: 24px; -fx-text-fill: #333333; -fx-font-weight: bold;";
 
-  public static final String TITLE_STYLE = "-fx-font-size: 40px; -fx-text-fill: #000000; -fx-font-weight: bold;";
+  public static final String MAIN_LAYOUT_STYLE = "-fx-background-color: #236788;";
 
-  public static final String STATUS_LABEL_STYLE = "-fx-font-size: 16px; -fx-text-fill: #000000;";
+  public static final String TITLE_STYLE = "-fx-font-size: 40px; -fx-text-fill: White; -fx-font-weight: bold;";
 
-  public static final String PLACEHOLDER_LABEL_STYLE = "-fx-font-size: 16px; -fx-text-fill: #ffffff;";
+  public static final String STATUS_PANEL_STYLE = "-fx-background-color: #457b9d; " +
+      "-fx-border-color: #1d3557; " +
+      "-fx-border-width: 3px; " +
+      "-fx-border-radius: 10px; " +
+      "-fx-background-radius: 10px; " +
+      "-fx-padding: 15px; " +
+      "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 2, 3);";
+
+  public static final String STATUS_LABEL_STYLE = "-fx-font-size: 18px; " +
+      "-fx-text-fill: White; " +
+      "-fx-font-weight: bold; " +
+      "-fx-padding: 5px;";
+
+  public static final String PLACEHOLDER_LABEL_STYLE = "-fx-font-size: 18px; " +
+      "-fx-text-fill: White; " +
+      "-fx-font-weight: bold; " +
+      "-fx-font-style: italic;";
 
   private static final String BUTTON_NORMAL_STYLE =
       "-fx-background-color: linear-gradient(to bottom, #9c9999, #615f5f); " +

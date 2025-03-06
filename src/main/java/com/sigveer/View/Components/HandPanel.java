@@ -3,10 +3,16 @@ package com.sigveer.View.Components;
 import com.sigveer.Model.HandOfCards;
 import com.sigveer.Model.PlayingCards;
 import com.sigveer.Utils.StyleUtils;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.TranslateTransition;
+import javafx.util.Duration;
 
 /**
  * {@code HandPanel} represents a UI component for displaying a hand of cards.
@@ -21,15 +27,16 @@ public class HandPanel extends VBox {
    * @Since: 1.1
    */
   public HandPanel() {
-    super(10);
+    super(15);
 
     this.setStyle(StyleUtils.CARD_DISPLAY_BOX_STYLE);
-    this.setPrefSize(400, 150);
-    this.setMaxWidth(400);
-    this.setMaxHeight(150);
+    this.setPrefSize(900, 400);
+    this.setMaxWidth(900);
+    this.setMaxHeight(300);
     this.setAlignment(Pos.CENTER);
+    this.setPadding(new Insets(20));
 
-    handDisplay = new HBox(10);
+    handDisplay = new HBox(15);
     handDisplay.setAlignment(Pos.CENTER);
 
     placeholderLabel = new Label("Click 'Deal hand' to get a hand of cards");
@@ -39,6 +46,7 @@ public class HandPanel extends VBox {
   }
 
   /**
+   * Made with help of AI (ChatGPT)
    * Updates the hand display with a new hand of cards.
    *
    * @param hand The hand of cards to display.
@@ -49,9 +57,33 @@ public class HandPanel extends VBox {
     handDisplay.getChildren().clear();
     placeholderLabel.setVisible(false);
 
+    int delay = 0;
     for (PlayingCards card : hand.hand()) {
-      CardComponents cardComponents = new CardComponents(card);
-      handDisplay.getChildren().add(cardComponents);
+      CardComponents cardComponent = new CardComponents(card);
+
+      cardComponent.setScaleX(0.1);
+      cardComponent.setScaleY(0.1);
+      cardComponent.setOpacity(0);
+      cardComponent.setTranslateY(50);
+
+      handDisplay.getChildren().add(cardComponent);
+
+      ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(300), cardComponent);
+      scaleTransition.setToX(1.0);
+      scaleTransition.setToY(1.0);
+
+      FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cardComponent);
+      fadeTransition.setToValue(1.0);
+
+      TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), cardComponent);
+      translateTransition.setToY(0);
+
+      SequentialTransition sequentialTransition = new SequentialTransition(cardComponent);
+      sequentialTransition.getChildren().addAll(scaleTransition, fadeTransition, translateTransition);
+      sequentialTransition.setDelay(Duration.millis(delay));
+      sequentialTransition.play();
+
+      delay += 150;
     }
   }
 }

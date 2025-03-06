@@ -1,6 +1,7 @@
 package com.sigveer.View.Components;
 
 import com.sigveer.Utils.StyleUtils;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -20,9 +21,12 @@ public class StatusPanel extends VBox {
    * @Since: 1.0
    */
   public StatusPanel() {
-    super(10);
+    super(15);
 
     this.setAlignment(Pos.CENTER_LEFT);
+    this.setStyle(StyleUtils.STATUS_PANEL_STYLE);
+    this.setPrefWidth(500);
+    this.setPadding(new Insets(20));
 
     sumLabel = new Label("Sum of the faces: ");
     StyleUtils.styleStatusLabel(sumLabel);
