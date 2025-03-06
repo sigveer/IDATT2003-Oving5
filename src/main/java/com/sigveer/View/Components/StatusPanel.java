@@ -25,8 +25,10 @@ public class StatusPanel extends VBox {
 
     this.setAlignment(Pos.CENTER_LEFT);
     this.setStyle(StyleUtils.STATUS_PANEL_STYLE);
-    this.setPrefWidth(500);
-    this.setPadding(new Insets(20));
+    this.setPrefSize(900, 400);
+    this.setMaxWidth(900);
+    this.setMaxHeight(300);
+
 
     sumLabel = new Label("Sum of the faces: ");
     StyleUtils.styleStatusLabel(sumLabel);

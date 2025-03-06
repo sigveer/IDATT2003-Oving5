@@ -48,7 +48,7 @@ public class FlushApp extends Application {
 
         VBox mainLayout = createMainLayout();
 
-        Scene scene = new Scene(mainLayout, 800, 800);
+        Scene scene = new Scene(mainLayout, 800, 900);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -169,7 +169,7 @@ public class FlushApp extends Application {
         gameController.dealHand(5);
         handPanel.updateHandDisplay(gameController.getCurrentHand());
         statusPanel.resetLabels();
-        updateMessage("Ny hånd delt ut! Klikk 'Sjekk hånd' for å se resultatet.");
+        updateMessage("New hand dealt! Click 'Check hand' to see the result.");
     }
 
 
@@ -186,12 +186,12 @@ public class FlushApp extends Application {
             statusPanel.updateFlushLabel(gameController.hasFlush());
 
             if (gameController.hasFlush()) {
-                updateMessage("GRATULERER! Du har en FLUSH! 🎉");
+                updateMessage("CONGRATULATIONS! You have a FLUSH! 🎉");
             } else {
-                updateMessage("Hånd er sjekket! Ingen FLUSH denne gangen. Prøv igjen!");
+                updateMessage("Hand is checked! No FLUSH this time. Try again!");
             }
         } else {
-            updateMessage("Du må dele ut en hånd først!");
+            updateMessage("You must deal a hand first!");
         }
     }
 

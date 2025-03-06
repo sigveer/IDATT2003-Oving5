@@ -28,7 +28,10 @@ public class StyleUtils {
 
   public static final String MAIN_LAYOUT_STYLE = "-fx-background-color: #236788;";
 
-  public static final String TITLE_STYLE = "-fx-font-size: 40px; -fx-text-fill: White; -fx-font-weight: bold;";
+  public static final String TITLE_STYLE = "-fx-font-size: 48px; " +
+      "-fx-text-fill: White; " +
+      "-fx-font-weight: bold; " +
+      "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 1, 2);";
 
   public static final String STATUS_PANEL_STYLE = "-fx-background-color: #457b9d; " +
       "-fx-border-color: #1d3557; " +
@@ -49,36 +52,39 @@ public class StyleUtils {
       "-fx-font-style: italic;";
 
   private static final String BUTTON_NORMAL_STYLE =
-      "-fx-background-color: linear-gradient(to bottom, #9c9999, #615f5f); " +
+      "-fx-background-color: linear-gradient(to bottom, #377fa5, #075a61); " +
           "-fx-text-fill: white; " +
-          "-fx-font-size: 16px; " +
-          "-fx-padding: 10px 20px; " +
-          "-fx-border-radius: 5px; " +
-          "-fx-background-radius: 5px; " +
+          "-fx-font-weight: bold; " +
+          "-fx-font-size: 20px; " +
+          "-fx-padding: 15px 25px; " +
+          "-fx-border-radius: 7,5px; " +
+          "-fx-background-radius: 7,5px; " +
           "-fx-border-color: #2d2f33; " +
-          "-fx-border-width: 2px; " +
+          "-fx-border-width: 3px; " +
           "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 2, 2);";
 
   private static final String BUTTON_HOVER_STYLE =
-      "-fx-background-color: linear-gradient(to bottom, #9c9999, #615f5f); " +
+      "-fx-background-color: linear-gradient(to bottom, #377fa5, #075a61); " +
           "-fx-text-fill: white; " +
-          "-fx-font-size: 16px; " +
-          "-fx-padding: 10px 20px; " +
-          "-fx-border-radius: 5px; " +
-          "-fx-background-radius: 5px; " +
+          "-fx-font-weight: bold; " +
+          "-fx-font-size: 20px; " +
+          "-fx-padding: 15px 25px; " +
+          "-fx-border-radius: 7,5px; " +
+          "-fx-background-radius: 7,5px; " +
           "-fx-border-color: #2d2f33; " +
-          "-fx-border-width: 2px; " +
+          "-fx-border-width: 3px; " +
           "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 3, 3);";
 
   private static final String BUTTON_PRESSED_STYLE =
-      "-fx-background-color: linear-gradient(to top, #303030, #6e6d6d); " +
+      "-fx-background-color: linear-gradient(to top, #377fa5, #075a61); " +
           "-fx-text-fill: white; " +
-          "-fx-font-size: 16px; " +
-          "-fx-padding: 12px 20px 8px 20px; " +
-          "-fx-border-radius: 5px; " +
-          "-fx-background-radius: 5px; " +
+          "-fx-font-weight: bold; " +
+          "-fx-font-size: 20px; " +
+          "-fx-padding: 15px 25px 12px 25px; " +
+          "-fx-border-radius: 7,5px; " +
+          "-fx-background-radius: 7,5px; " +
           "-fx-border-color: #2d2f33; " +
-          "-fx-border-width: 2px; " +
+          "-fx-border-width: 3px; " +
           "-fx-effect: innershadow(gaussian, rgba(0,0,0,0.7), 5, 0, 0, 0);";
 
   /**

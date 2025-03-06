@@ -34,7 +34,6 @@ public class HandPanel extends VBox {
     this.setMaxWidth(900);
     this.setMaxHeight(300);
     this.setAlignment(Pos.CENTER);
-    this.setPadding(new Insets(20));
 
     handDisplay = new HBox(15);
     handDisplay.setAlignment(Pos.CENTER);
