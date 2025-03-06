@@ -39,9 +39,6 @@ public class DeckOfCards {
    * @Since: 1.0
    */
   public HandOfCards dealHand(int numberOfCards) {
-    if (numberOfCards < 1 || numberOfCards > 52) {
-      throw new IllegalArgumentException("Number of cards must be between 1 and 52.");
-    }
     Collections.shuffle(this.deck);
     List<PlayingCards> dealtCards = new ArrayList<>(this.deck.subList(0, numberOfCards));
     return new HandOfCards(dealtCards);

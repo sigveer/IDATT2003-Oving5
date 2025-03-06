@@ -3,7 +3,6 @@ package com.sigveer.View.Components;
 import com.sigveer.Model.HandOfCards;
 import com.sigveer.Model.PlayingCards;
 import com.sigveer.Utils.StyleUtils;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -63,18 +62,18 @@ public class HandPanel extends VBox {
       cardComponent.setScaleX(0.1);
       cardComponent.setScaleY(0.1);
       cardComponent.setOpacity(0);
-      cardComponent.setTranslateY(50);
+      cardComponent.setTranslateY(25);
 
       handDisplay.getChildren().add(cardComponent);
 
-      ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(300), cardComponent);
+      ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), cardComponent);
       scaleTransition.setToX(1.0);
       scaleTransition.setToY(1.0);
 
-      FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), cardComponent);
+      FadeTransition fadeTransition = new FadeTransition(Duration.millis(200), cardComponent);
       fadeTransition.setToValue(1.0);
 
-      TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), cardComponent);
+      TranslateTransition translateTransition = new TranslateTransition(Duration.millis(200), cardComponent);
       translateTransition.setToY(0);
 
       SequentialTransition sequentialTransition = new SequentialTransition(cardComponent);
