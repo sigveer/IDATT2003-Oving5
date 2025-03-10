@@ -103,9 +103,8 @@ class GameControllerTest {
   void testHasFlush() {
     boolean foundFlush = false;
     int attempts = 0;
-    final int MAX_ATTEMPTS = 1000;
 
-    while (!foundFlush && attempts < MAX_ATTEMPTS) {
+    while (!foundFlush && attempts < 1000) {
       gameController.dealHand(5);
       foundFlush = gameController.hasFlush();
       attempts++;
@@ -115,7 +114,7 @@ class GameControllerTest {
       assertTrue(gameController.hasFlush(), "Should have a flush");
       System.out.println("Found flush after " + attempts + " attempts");
     } else {
-      System.out.println("Did not find flush after " + MAX_ATTEMPTS + " attempts");
+      System.out.println("Did not find flush after 1000 attempts");
     }
   }
 }
