@@ -29,7 +29,17 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>23.0.1</version>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
     </dependency>
   </dependencies>
 
@@ -49,6 +59,28 @@
         <version>3.5.2</version>
       </plugin>
 
+      <!-- Maven Shade Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.5.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>com.sigveer.Main</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <!-- JavaFX Maven Plugin -->
       <plugin>
         <groupId>org.openjfx</groupId>
@@ -57,6 +89,12 @@
         <configuration>
           <!-- Main class -->
           <mainClass>com.sigveer.Main</mainClass>
+          <options>
+            <option>--add-modules</option>
+            <option>javafx.controls,javafx.fxml</option>
+            <option>--add-exports</option>
+            <option>javafx.graphics/com.sun.javafx.application=ALL-UNNAMED</option>
+          </options>
         </configuration>
       </plugin>
     </plugins>
